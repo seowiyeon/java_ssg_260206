@@ -16,13 +16,8 @@ public class Main {
             cmd = cmd.trim(); // 앞뒤에 쓸데없는 공백을 제거
 
             // if ( cmd.length() == 0 ) { // 아래와 똑같이 작동
-            if ( cmd.isEmpty() ) {
-                continue;
-            }
-
-            if ( cmd.equals("exit") ) {
-                break;
-            }
+            if ( cmd.isEmpty() ) continue;
+            if ( cmd.equals("exit") ) break;
 
             if ( cmd.equals("write") ) {
                 int id = lastArticleId + 1;
@@ -49,9 +44,7 @@ public class Main {
 
                     IO.println(String.format("%d   | %s", article.id, article.subject));
                 }
-            }  else {
-                IO.println("존재하지 않는 명령어입니다.");
-            }
+            }  else IO.println("존재하지 않는 명령어입니다.");
         }
 
         IO.println("== 프로그램 끝 ==");
