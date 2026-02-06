@@ -1,18 +1,45 @@
-//TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
-// 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 import java.util.Scanner;
 
 public class Main {
     static void main() {
-        System.out.println("== 프로그램 시작 ==");
+        IO.println("== 프로그램 시작 ==");
         Scanner sc = new Scanner(System.in);
 
-        IO.print("명령어) ");
-        String cmd = sc.nextLine();
-        IO.println(String.format("입력된 명령어 : %s\n", cmd));
+        int lastArticleId = 0;
+
+        while ( true ) {
+            IO.print("명령어) ");
+            String cmd = sc.nextLine();
+            cmd = cmd.trim(); // 앞뒤에 쓸데없는 공백을 제거
+
+            // if ( cmd.length() == 0 ) { // 아래와 똑같이 작동
+            if ( cmd.isEmpty() ) {
+                continue;
+            }
+
+            if ( cmd.equals("exit") ) {
+                break;
+            }
+
+            if ( cmd.equals("write") ) {
+                int id = lastArticleId + 1;
+                IO.print("제목 : ");
+                String subject = sc.nextLine();
+                IO.print("내용 : ");
+                String content = sc.nextLine();
+
+                lastArticleId = id;
+
+                IO.println(String.format("%d번 글이 생성되었습니다.", id));
+            } else if ( cmd.equals("list") ) {
+                IO.println("게시물이 없습니다.");
+            }  else {
+                IO.println("존재하지 않는 명령어입니다.");
+            }
+        }
 
 
-        System.out.println("== 프로그램 끝 ==");
+        IO.println("== 프로그램 끝 ==");
         sc.close();
     }
 }
