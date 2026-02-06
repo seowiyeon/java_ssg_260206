@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="060b64e6-c81e-4a5a-a941-5f1d20285949" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Article.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -12,6 +13,16 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,6 +69,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/admin/IdeaProjects/java_ssg_260206/src/Main.java",
+    "settings.editor.selected.configurable": "editor.preferences.import",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true",
     "애플리케이션.Main.executor": "Run"
@@ -94,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1770357849049</updated>
       <workItem from="1770357850220" duration="1000" />
-      <workItem from="1770358508303" duration="655000" />
+      <workItem from="1770358508303" duration="1633000" />
     </task>
     <servers />
   </component>
@@ -111,5 +123,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
