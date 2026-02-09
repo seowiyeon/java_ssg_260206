@@ -19,7 +19,7 @@ public class Main {
             if ( cmd.isEmpty() ) continue;
             if ( cmd.equals("exit") ) break;
 
-            if ( cmd.equals("write") ) {
+            if ( cmd.equals("article write") ) {
                 int id = lastArticleId + 1;
                 IO.print("제목 : ");
                 String subject = sc.nextLine();
@@ -32,8 +32,8 @@ public class Main {
                 lastArticleId = id;
 
                 IO.println(String.format("%d번 글이 생성되었습니다.", id));
-            } else if ( cmd.equals("list") ) {
-                if ( articles.size() == 0 ) {
+            } else if ( cmd.equals("article list") ) {
+                if ( articles.isEmpty() ) {
                     IO.println("게시물이 없습니다.");
                     continue;
                 }
@@ -44,7 +44,34 @@ public class Main {
 
                     IO.println(String.format("%d   | %s", article.id, article.subject));
                 }
-            }  else IO.println("존재하지 않는 명령어입니다.");
+            } else if ( cmd.startsWith("article detail ") ) {
+                String[] cmdBits = cmd.split(" ");
+//                IO.println(cmdBits[0]); // article
+//                IO.println(cmdBits[1]); // detail
+//                IO.println(cmdBits[2]); // 1
+
+                int id = Integer.parseInt(cmdBits[2]);
+
+                Article foundArticle = null;
+
+                for (Article article : articles) {
+                    if (article.id == id) {
+                        foundArticle = article;
+                        break;
+                    }
+                }
+
+                if ( foundArticle == null ) {
+                    IO.println(String.format("%d번 게시물은 존재하지 않습니다.", id));
+                    continue;
+                }
+
+                IO.println(String.format("번호 : %d번", foundArticle.id));
+                IO.println(String.format("날짜 : %s번", "2020-12-12 12:12:12"));
+                IO.println(String.format("제목 : %s번", foundArticle.subject));
+                IO.println(String.format("내용 : %s번", foundArticle.content));
+
+            } else IO.println("존재하지 않는 명령어입니다.");
         }
 
         IO.println("== 프로그램 끝 ==");
