@@ -21,12 +21,13 @@ public class Main {
 
             if ( cmd.equals("article write") ) {
                 int id = lastArticleId + 1;
+                String regDate = Util.getNowDateStr();
                 IO.print("제목 : ");
                 String subject = sc.nextLine();
                 IO.print("내용 : ");
                 String content = sc.nextLine();
 
-                Article article = new Article(id, subject, content);
+                Article article = new Article(id, regDate, subject, content);
                 articles.add(article);
 
                 lastArticleId = id;
@@ -66,10 +67,10 @@ public class Main {
                     continue;
                 }
 
-                IO.println(String.format("번호 : %d번", foundArticle.id));
-                IO.println(String.format("날짜 : %s번", "2020-12-12 12:12:12"));
-                IO.println(String.format("제목 : %s번", foundArticle.subject));
-                IO.println(String.format("내용 : %s번", foundArticle.content));
+                IO.println(String.format("번호 : %d", foundArticle.id));
+                IO.println(String.format("날짜 : %s", foundArticle.regDate));
+                IO.println(String.format("제목 : %s", foundArticle.subject));
+                IO.println(String.format("내용 : %s", foundArticle.content));
 
             } else IO.println("존재하지 않는 명령어입니다.");
         }
