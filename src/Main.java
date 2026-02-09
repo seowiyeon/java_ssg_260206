@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -90,7 +89,38 @@ public class Main {
                 }
 
                 articles.remove(foundIndex);
+
                 IO.println(String.format("%d번 게시물이 삭제되었습니다.", id));
+            }
+            else if ( cmd.startsWith("article modify ") ) {
+                String[] cmdBits = cmd.split(" ");
+                int id = Integer.parseInt(cmdBits[2]);
+
+                Article foundArticle = null;
+
+                for (Article article : articles) {
+                    if (article.id == id) {
+                        foundArticle = article;
+                        break;
+                    }
+                }
+
+                if ( foundArticle == null ) {
+                    IO.println(String.format("%d번 게시물은 존재하지 않습니다.", id));
+                    continue;
+                }
+
+
+                IO.print("제목 : ");
+                String subject = sc.nextLine();
+                IO.print("내용 : ");
+                String content = sc.nextLine();
+
+                foundArticle.regDate = Util.getNowDateStr();
+                foundArticle.subject = subject;
+                foundArticle.content = content;
+
+                IO.println(String.format("%d번 게시물이 수정되었습니다.", id));
             }
 
             else IO.println("존재하지 않는 명령어입니다.");
