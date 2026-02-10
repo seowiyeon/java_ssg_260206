@@ -39,11 +39,11 @@ public class Main {
                     continue;
                 }
 
-                IO.println("번호 | 제목");
+                IO.println("번호 | 조회 | 제목");
                 for ( int i = articles.size() - 1; i >= 0; i-- ) {
                     Article article = articles.get(i);
 
-                    IO.println(String.format("%d   | %s", article.id, article.subject));
+                    IO.println(String.format("%d   | %d   | %s", article.id,article.hit, article.subject));
                 }
             } else if ( cmd.startsWith("article detail ") ) {
                 String[] cmdBits = cmd.split(" ");
@@ -63,10 +63,13 @@ public class Main {
                     continue;
                 }
 
+                foundArticle.increaseHit();
+
                 IO.println(String.format("번호 : %d", foundArticle.id));
                 IO.println(String.format("날짜 : %s", foundArticle.regDate));
                 IO.println(String.format("제목 : %s", foundArticle.subject));
                 IO.println(String.format("내용 : %s", foundArticle.content));
+                IO.println(String.format("조회 : %d", foundArticle.hit));
 
             } else if ( cmd.startsWith("article delete ") ) {
                 String[] cmdBits = cmd.split(" ");
