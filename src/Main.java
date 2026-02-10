@@ -3,19 +3,24 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    static void main() {
+    private static List<Article> articles;
+
+    static {
+        articles = new ArrayList<>();
+    }
+
+    public static void main() {
         IO.println("== 프로그램 시작 ==");
+        makeTestData();
         Scanner sc = new Scanner(System.in);
 
-        int lastArticleId = 0;
-        List<Article> articles = new ArrayList<>();
+        int lastArticleId = 3;
 
         while ( true ) {
             IO.print("명령어) ");
             String cmd = sc.nextLine();
             cmd = cmd.trim(); // 앞뒤에 쓸데없는 공백을 제거
 
-            // if ( cmd.length() == 0 ) { // 아래와 똑같이 작동
             if ( cmd.isEmpty() ) continue;
             if ( cmd.equals("exit") ) break;
 
@@ -113,7 +118,6 @@ public class Main {
                     continue;
                 }
 
-
                 IO.print("제목 : ");
                 String subject = sc.nextLine();
                 IO.print("내용 : ");
@@ -131,5 +135,13 @@ public class Main {
 
         IO.println("== 프로그램 끝 ==");
         sc.close();
+    }
+
+    private static void makeTestData() {
+        IO.println("테스트를 위한 데이터를 생성합니다.");
+
+        articles.add(new Article(1, Util.getNowDateStr(), "제목 1", "내용 1", 10));
+        articles.add(new Article(2, Util.getNowDateStr(), "제목 2", "내용 2", 43));
+        articles.add(new Article(3, Util.getNowDateStr(), "제목 3", "내용 3", 33));
     }
 }
